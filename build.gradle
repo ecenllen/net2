@@ -57,7 +57,7 @@ dependencies {
 //    api files('libs/wechat-sdk-android-with-mta-1.0.2.jar')
     api 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8'
     api files('libs/alipaySdk-15.6.8-20191021122514.aar')
-//    api files('libs/GDTSDK.unionNormal.4.132.1002.aar')
+    api files('libs/GDTSDK.unionNormal.4.132.1002.aar')
 
     api 'com.squareup.retrofit2:adapter-rxjava:2.4.0'
     api 'com.squareup.retrofit2:converter-gson:2.6.0'
