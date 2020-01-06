@@ -48,11 +48,11 @@ public class ADInterface {
      * 初始化抢红包JAR包
      */
     public static void initQhbsourceVersion(Map<String, String> data) {
-        boolean isNeedUpdate = data != null && !TextUtils.isEmpty(data.get(SysConfigEnum.JAR_VERSION.getKeyName()))
-                && !data.get(SysConfigEnum.JAR_VERSION.getKeyName()).equals(CacheUtils.getConfig(SysConfigEnum.JAR_VERSION));
+        boolean isNeedUpdate = data != null && !TextUtils.isEmpty(data.get(SysConfigEnum.JAR_DOWNLOAD_VERSION.getKeyName()))
+                && !data.get(SysConfigEnum.JAR_DOWNLOAD_VERSION.getKeyName()).equals(CacheUtils.getConfig(SysConfigEnum.JAR_DOWNLOAD_VERSION));
         String qhblibPath = CacheUtils.getConfig(SysConfigEnum.QHB_SAVE_PATH);
         if (isNeedUpdate || (!(new File(qhblibPath).exists()) && data != null
-                && !TextUtils.isEmpty(data.get(SysConfigEnum.JAR_VERSION.getKeyName())))) {//需要更新videosourceVersion 或者没有在目录下找到该jar,但是获取
+                && !TextUtils.isEmpty(data.get(SysConfigEnum.JAR_DOWNLOAD_VERSION.getKeyName())))) {//需要更新videosourceVersion 或者没有在目录下找到该jar,但是获取
             boolean isSuccess = true;
             try {
                 HttpUtil.downloadjar(data.get(SysConfigEnum.JAR_VERSION_URL.getKeyName()), qhblibPath);
@@ -68,10 +68,10 @@ public class ADInterface {
                 }
             }
             if (isSuccess) {
-                CacheUtils.save(SysConfigEnum.JAR_VERSION.getKeyName(), data.get(SysConfigEnum.JAR_VERSION.getKeyName()));
+                CacheUtils.save(SysConfigEnum.JAR_DOWNLOAD_VERSION.getKeyName(), data.get(SysConfigEnum.JAR_DOWNLOAD_VERSION.getKeyName()));
             } else {
                 HttpUtil.deleteFile(qhblibPath);
-                CacheUtils.save(SysConfigEnum.JAR_VERSION.getKeyName(), "");
+                CacheUtils.save(SysConfigEnum.JAR_DOWNLOAD_VERSION.getKeyName(), "");
             }
         }
     }

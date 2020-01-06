@@ -37,16 +37,16 @@ public enum SysConfigEnum {
 
     /*以下是公共配置，不区分应用*/
     AD_ZIXUN_VERSION("ad_zixun_version", "20191230", "新闻资讯配置版本号"),
-    AD_ZIXUN_URL("ad_zixun_url", "json", "新闻资讯配置下载地址"),
-    AD_ZIXUN_JSON("ad_zixun_json", "json", "新闻资讯配置保存key"),
+    AD_ZIXUN_URL("ad_zixun_url", "", "新闻资讯配置下载地址"),
+    AD_ZIXUN_JSON("ad_zixun_json", "", "新闻资讯配置保存key"),
     AD_VIDEO_SOURCE_VERSION("ad_video_source_version", "1", "视频源配置版本号"),
-    AD_VIDEO_SOURCE_URL("ad_video_source_url", "json", "新闻资讯配置下载地址"),
+    AD_VIDEO_SOURCE_URL("ad_video_source_url", "", "新闻资讯配置下载地址"),
     AD_VIDEO_JSON("ad_video_json", "json", "新闻资讯配置保存key"),
     AD_SELFAD_VERSION("ad_selfad_version", "", "新闻资讯配置下载地址"),
     AD_SELFAD_URL("ad_selfad_url", "json", "自己广告配置下载地址"),
     AD_SELFAD_JSON("ad_selfad_json", "", "自己广告配置保存key"),
 
-    AD_WXGZH_VERSION("ad_wxgzh_version", "1", "微信公众号配置版本号"),
+    AD_WXGZH_VERSION("ad_wxgzh_version", "0", "微信公众号配置版本号"),
     AD_WXGZH_URL("ad_wxgzh_url", "json", "微信公众号配置下载地址"),
     AD_WXGZH_JSON("ad_wxgzh_json", "", "微信公众号配置保存key"),
     AD_ONLINE_VIDEO_PARSE_VERSION("ad_online_video_parse_version", "1", "视频解析库版本号"),
@@ -63,10 +63,10 @@ public enum SysConfigEnum {
     QQ_KEY("qqkey", "", "qqKey"),
     INFORMATION("information", "", "qqKey"),
     FENXIANG_INFO("fenxiang_info", "", "分享信息"),
-    JAR_VERSION("jar_version", "1", "jar库版本号"),
-    JAR_VERSION_URL("jar_download_url", "1", "jar库下载地址"),
+    JAR_DOWNLOAD_VERSION("jar_download_version", "0", "jar库版本号"),
+    JAR_VERSION_URL("jar_download_url", "0", "jar库下载地址"),
     JAR_VERSION2("jar_version2", "1", "jar库2版本号"),
-    JAR_VERSION_URL2("jar_download_url2", "1", "jar库2下载地址"),
+    JAR_VERSION_URL2("jar_download_url2", "0", "jar库2下载地址"),
 
 
     QHB_SAVE_PATH("qhb_save_path", "", "抢红包jar保存地址"),
