@@ -34,6 +34,7 @@ public class ADInterface {
                 initSelfadJson(data);
                 initVideoJson(data);
                 initZixunJson(data);
+                initWXGZHJson(data);
                 ADHelp.InitLocal();
                 CacheUtils.setConfigs(data);
             } else {
@@ -140,6 +141,25 @@ public class ADInterface {
                         String adJson = HttpUtil.getJson(url);
                         if (!TextUtils.isEmpty(adJson)) {
                             CacheUtils.save(SysConfigEnum.AD_VIDEO_JSON.getKeyName(), adJson);
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    public static void initWXGZHJson(Map<String, String> data) {
+        if (data == null) return;
+        String adVersion = data.get(SysConfigEnum.AD_WXGZH_VERSION.getKeyName());
+        if (!TextUtils.isEmpty(adVersion)) {
+            if (!adVersion.equals(CacheUtils.getConfig(SysConfigEnum.AD_WXGZH_VERSION))) {
+                try {
+                    String url = data.get(SysConfigEnum.AD_WXGZH_URL.getKeyName());
+                    if (!TextUtils.isEmpty(url)) {
+                        String adJson = HttpUtil.getJson(url);
+                        if (!TextUtils.isEmpty(adJson)) {
+                            CacheUtils.save(SysConfigEnum.AD_WXGZH_JSON.getKeyName(), adJson);
                         }
                     }
                 } catch (IOException e) {

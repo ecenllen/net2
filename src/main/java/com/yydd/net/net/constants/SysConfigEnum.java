@@ -23,6 +23,7 @@ public enum SysConfigEnum {
     AD_SHOW_GZH("ad_show_gzh", "true", "是否展示公众号"),
     AD_SHOW_UPDATE("ad_show_update", "false", "是否展示更新"),
     AD_FENXIANG("ad_fenxiang", "false", "是否可以分享"),
+    AD_SHOW_ZIXUN("ad_show_zixun", "false", "是否展示资讯"),
 
 
     AD_BANNER_TYPE("ad_banner_type", "gdt2", "banner广告类型"),
@@ -34,6 +35,7 @@ public enum SysConfigEnum {
     AD_TP_TYPE("ad_tp_type", "gdtmb", "退屏广告类型"),
     AD_TP_ID("ad_tp_id", "", "退屏广告ID"),
 
+    /*以下是公共配置，不区分应用*/
     AD_ZIXUN_VERSION("ad_zixun_version", "20191230", "新闻资讯配置版本号"),
     AD_ZIXUN_URL("ad_zixun_url", "json", "新闻资讯配置下载地址"),
     AD_ZIXUN_JSON("ad_zixun_json", "json", "新闻资讯配置保存key"),
@@ -60,7 +62,7 @@ public enum SysConfigEnum {
 
     QQ_KEY("qqkey", "", "qqKey"),
     INFORMATION("information", "", "qqKey"),
-    FENXIANG_INFO("fenxiang_info", "分享信息", "分享信息"),
+    FENXIANG_INFO("fenxiang_info", "", "分享信息"),
     JAR_VERSION("jar_version", "1", "jar库版本号"),
     JAR_VERSION_URL("jar_download_url", "1", "jar库下载地址"),
     JAR_VERSION2("jar_version2", "1", "jar库2版本号"),
