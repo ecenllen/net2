@@ -25,7 +25,8 @@ public class BaseDto {
     public String deviceManufacturer = Build.MANUFACTURER; //设备制造商
     public String deviceFingerPrint = getUniqueId();// 设备的唯一标志
     public String devicePlatform = "ANDROID";   //设备平台
-    public String application = "RED_PACKET";   //对应项目(不同项目需要修改)
+//    public String application = "RED_PACKET";   //对应项目(不同项目需要修改)
+    public String application =  PublicUtil.metadata(NetApplication.appContext, "application");   //对应项目(不同项目需要修改)
 
     public static String getUniqueId() {
         String imeistring = null;
