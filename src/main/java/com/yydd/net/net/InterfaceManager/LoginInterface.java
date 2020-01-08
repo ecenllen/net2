@@ -34,4 +34,20 @@ public class LoginInterface {
         });
     }
 
+    public static void registerLogin(String username, String password) {
+        AppExecutors.runNetworkIO(() -> {
+            DataResponse<LoginVO> login = HttpUtils.getInstance().getService(CommonApiService.class)
+                    .registerLogin(new RegisterUserDto(username, password));
+
+            if (login.success()) {
+                CacheUtils.setLoginData(login.getData());
+                CacheUtils.setUserNamePassword(username, password);
+                EventBus.getDefault().post(new LoginEvent().setSucceed(login.success()));
+            } else {
+                CacheUtils.setLoginData(new LoginVO());
+                EventBus.getDefault().post(new LoginEvent().setSucceed(login.success()).setMsg(login.getMessage()));
+            }
+        });
+    }
+
 }
