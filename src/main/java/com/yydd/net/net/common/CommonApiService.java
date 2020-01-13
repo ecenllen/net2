@@ -5,14 +5,17 @@ import com.yydd.net.net.ApiResponse;
 import com.yydd.net.net.BaseDto;
 import com.yydd.net.net.DataResponse;
 import com.yydd.net.net.HttpUtils;
+import com.yydd.net.net.PagedList;
 import com.yydd.net.net.common.dto.ApplicationDto;
 import com.yydd.net.net.common.dto.ChangePasswordDto;
 import com.yydd.net.net.common.dto.ConfirmOrderDto;
+import com.yydd.net.net.common.dto.DashangListDto;
 import com.yydd.net.net.common.dto.DownloadFileDto;
 import com.yydd.net.net.common.dto.OrderStatusDto;
 import com.yydd.net.net.common.dto.ProductListDto;
 import com.yydd.net.net.common.dto.RegisterUserDto;
 import com.yydd.net.net.common.vo.ConfirmOrderVO;
+import com.yydd.net.net.common.vo.DashangVO;
 import com.yydd.net.net.common.vo.LoginVO;
 import com.yydd.net.net.common.vo.OrderVO;
 import com.yydd.net.net.common.vo.ProductVO;
@@ -109,6 +112,30 @@ public interface CommonApiService {
      */
     @POST(HttpUtils.API_PREFIX+"product/list")
     DataResponse<List<ProductVO>> productList(@Body ProductListDto dto);
+
+    /**
+     * 打赏商品列表
+     * @param dto
+     * @return
+     */
+    @POST(HttpUtils.API_PREFIX+"product/list_rewards")
+    DataResponse<List<ProductVO>> list_rewards(@Body BaseDto dto);
+
+    /**
+     * 获取打赏榜数据
+     * @param dto
+     * @return
+     */
+    @POST(HttpUtils.API_PREFIX+"dashang/list")
+    DataResponse<PagedList<DashangVO>> dashang_list(@Body DashangListDto dto);
+
+    /**
+     *
+     * @param dto
+     * @return
+     */
+    @POST(HttpUtils.API_PREFIX+"user/add_old_vip")
+    ApiResponse addOldVip(@Body BaseDto dto);
 
     /**
      * 下单

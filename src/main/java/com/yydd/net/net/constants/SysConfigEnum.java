@@ -24,6 +24,7 @@ public enum SysConfigEnum {
     AD_SHOW_UPDATE("ad_show_update", "false", "是否展示更新"),
     AD_FENXIANG("ad_fenxiang", "false", "是否可以分享"),
     AD_SHOW_ZIXUN("ad_show_zixun", "false", "是否展示资讯"),
+    AD_SHOW_DASHANG("ad_show_dashang", "true", "是否展示打赏"),
 
 
     AD_BANNER_TYPE("ad_banner_type", "gdt2", "banner广告类型"),

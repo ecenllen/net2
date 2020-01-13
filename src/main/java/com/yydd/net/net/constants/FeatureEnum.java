@@ -1,7 +1,10 @@
 package com.yydd.net.net.constants;
 
 public enum FeatureEnum {
-    RED_PACKET("抢红包");
+    RED_PACKET("抢红包"),
+    MIRROR("镜子"),
+    BEIDOU("北斗会员");
+
 
     private String desc;
 

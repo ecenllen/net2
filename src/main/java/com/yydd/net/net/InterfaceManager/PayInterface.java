@@ -45,12 +45,12 @@ public class PayInterface {
     }
 
 
-    public static void pay(Activity activity, ProductVO productVO, PayTypeEnum payTypeEnum, String contactPhone) {
+    public static void pay(Activity activity, ProductVO productVO, PayTypeEnum payTypeEnum, String contactPhone, String orderAttr) {
         AppExecutors.runNetworkIO(new Runnable() {
             @Override
             public void run() {
                 DataResponse<ConfirmOrderVO> confirmOrderVODataResponse = HttpUtils.getInstance().getService(CommonApiService.class)
-                        .confirmOrder(new ConfirmOrderDto(productVO.getSku(), payTypeEnum, contactPhone, getPaydesc(activity), productVO.getPrice(), ""));
+                        .confirmOrder(new ConfirmOrderDto(productVO.getSku(), payTypeEnum, contactPhone, getPaydesc(activity), productVO.getPrice(), orderAttr));
                 if (confirmOrderVODataResponse.success()) {
                     if (payTypeEnum == PayTypeEnum.ALIPAY_APP)
                         PayDao.getInstance().setActivity(activity).goAlipay(confirmOrderVODataResponse.getData());
