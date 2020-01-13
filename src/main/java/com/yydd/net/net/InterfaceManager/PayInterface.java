@@ -8,11 +8,14 @@ import com.yydd.net.net.BaseDto;
 import com.yydd.net.net.CacheUtils;
 import com.yydd.net.net.DataResponse;
 import com.yydd.net.net.HttpUtils;
+import com.yydd.net.net.PagedList;
 import com.yydd.net.net.PayDao;
 import com.yydd.net.net.common.CommonApiService;
 import com.yydd.net.net.common.dto.ConfirmOrderDto;
+import com.yydd.net.net.common.dto.DashangListDto;
 import com.yydd.net.net.common.dto.ProductListDto;
 import com.yydd.net.net.common.vo.ConfirmOrderVO;
+import com.yydd.net.net.common.vo.DashangVO;
 import com.yydd.net.net.common.vo.LoginVO;
 import com.yydd.net.net.common.vo.ProductVO;
 import com.yydd.net.net.common.vo.UserFeatureVO;
@@ -44,6 +47,23 @@ public class PayInterface {
         });
     }
 
+    public static void getDashangProductList(){
+        AppExecutors.runNetworkIO(() -> {
+            List<ProductVO> data = HttpUtils.getInstance().getService(CommonApiService.class)
+                    .list_rewards(new BaseDto())
+                    .getData();
+            EventBus.getDefault().post(data == null ? new ArrayList<ProductVO>() : data);
+        });
+    }
+
+    public static void getDashangList(DashangListDto dashangListDto) {
+        AppExecutors.runNetworkIO(() -> {
+            PagedList<DashangVO> data = HttpUtils.getInstance().getService(CommonApiService.class)
+                    .dashang_list(dashangListDto)
+                    .getData();
+            EventBus.getDefault().post(data == null ? new PagedList<DashangVO>() : data);
+        });
+    }
 
     public static void pay(Activity activity, ProductVO productVO, PayTypeEnum payTypeEnum, String contactPhone, String orderAttr) {
         AppExecutors.runNetworkIO(new Runnable() {
